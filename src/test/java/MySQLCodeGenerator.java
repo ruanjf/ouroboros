@@ -1,5 +1,5 @@
-import com.runjf.code.generator.CodeGenerator;
-import com.runjf.code.generator.CodeInfo;
+import com.runjf.ouroboros.CodeInfo;
+import com.runjf.ouroboros.Ouroboros;
 
 import java.util.regex.Pattern;
 
@@ -20,7 +20,7 @@ public class MySQLCodeGenerator {
         };
 
         // 以下内容无需修改
-        new CodeGenerator()
+        new Ouroboros()
                 .generate(new CodeInfo()
                         .setJpa(true)
                         .setDatabaseUrl("jdbc:mysql://macnana.rwlb.rds.aliyuncs.com:3306/aims")

@@ -1,4 +1,4 @@
-package com.runjf.code.generator;
+package com.runjf.ouroboros;
 
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 

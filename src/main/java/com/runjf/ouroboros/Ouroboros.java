@@ -1,4 +1,4 @@
-package com.runjf.code.generator;
+package com.runjf.ouroboros;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.extension.toolkit.PackageHelper;
@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
  * @author rjf
  * @since 2019-08-27
  */
-public class CodeGenerator {
+public class Ouroboros {
 
     public void generate(CodeInfo codeInfo) {
         DataSourceProperties dataSourceProperties = new DataSourceProperties();

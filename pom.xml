@@ -2,28 +2,62 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<!--    <parent>-->
-<!--        <artifactId>aims</artifactId>-->
-<!--        <groupId>com.bjinto.aims</groupId>-->
-<!--        <version>1.0</version>-->
-<!--    </parent>-->
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.0.RELEASE</version>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.runjf</groupId>
-    <artifactId>code-generator</artifactId>
+    <artifactId>ouroboros</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <tag>master</tag>
+        <url>git@github.com:ruanjf/ouroboros.git</url>
+        <connection>scm:git:git@github.com:ruanjf/ouroboros.git</connection>
+        <developerConnection>scm:git:git@github.com:ruanjf/ouroboros.git</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <name>ruanjf</name>
+            <email>runjf@qq.com</email>
+        </developer>
+    </developers>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <resource.delimiter>@</resource.delimiter>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <mybaits-plus.version>3.1.2</mybaits-plus.version>
         <freemarker.version>2.3.29</freemarker.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.2.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- mybatis-plus -->
@@ -54,5 +88,37 @@
             </exclusions>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>sonatype-oss-snapshots</id>
+            <name>Sonatype OSS Snapshots Repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>
