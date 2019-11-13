@@ -60,6 +60,12 @@
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- mybatis-plus -->
         <dependency>
             <groupId>com.baomidou</groupId>

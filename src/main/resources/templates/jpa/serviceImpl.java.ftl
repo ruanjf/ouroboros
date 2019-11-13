@@ -26,8 +26,11 @@ open class ${table.serviceImplName} : ${superServiceImplClass}<${tableName}Repos
 public class ${table.serviceImplName} extends ${superServiceImplClass}<${tableName}Repository, ${entity}, ${tableVoName}>
         implements ${table.serviceName} {
 
+    private final ${tableName}Repository repository;
+
     public ${table.serviceImplName}(${tableName}Repository repository) {
-         super(repository);
+        super(repository);
+        this.repository = repository;
     }
 
 }

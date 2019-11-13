@@ -3,6 +3,7 @@ package ${package.Repository};
 import ${package.Entity}.${entity};
 import ${superMapperClassPackage};
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.repository.query.QueryByExampleExecutor;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -17,7 +18,8 @@ import org.springframework.stereotype.Repository;
 interface ${table.mapperName} : ${superMapperClass}<${entity}>
 <#else>
 @Repository
-public interface ${tableName}Repository extends ${superMapperClass}<${entity}, Integer>, JpaSpecificationExecutor<${entity}>{
+public interface ${tableName}Repository extends ${superMapperClass}<${entity}, Integer>,
+        JpaSpecificationExecutor<${entity}>, QueryByExampleExecutor<${entity}> {
 
 }
 </#if>

@@ -39,7 +39,11 @@ public class Ouroboros {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        gc.setEntityName("%sDO");
+        String prefix = codeInfo.getProjectPrefix() + codeInfo.getModulePrefix();
+        gc.setEntityName(prefix + "%sDO");
+        gc.setServiceName(codeInfo.getProjectPrefix() + "I" + codeInfo.getModulePrefix() + "%sService");
+        gc.setServiceImplName(prefix + "%sImpl");
+        gc.setControllerName(prefix + "%sController");
 //        String projectPath = CodeGenerator.class.getResource("/").getPath() + "../..";
         String projectPath = codeInfo.getDir();
         gc.setOutputDir(projectPath + "/src/main/java");
@@ -89,6 +93,11 @@ public class Ouroboros {
                     //noinspection unchecked
                     Map<String, String> pkg = (Map<String, String>) objectMap.get("package");
                     String entityPath = getEntityName(tableInfo.getEntityPath());
+                    String p = prefix.substring(0, 1).toLowerCase() + prefix.substring(1);
+                    if (entityPath != null && entityPath.startsWith(p)) {
+                        entityPath = entityPath.substring(p.length());
+                        entityPath = entityPath.substring(0, 1).toLowerCase() + entityPath.substring(1);
+                    }
                     if (entityPath != null && entityPath.startsWith(pc.getModuleName())) {
                         entityPath = entityPath.substring(pc.getModuleName().length());
                         entityPath = entityPath.substring(0, 1).toLowerCase() + entityPath.substring(1);

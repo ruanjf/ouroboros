@@ -1,6 +1,8 @@
 package com.runjf.ouroboros;
 
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
+import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -9,7 +11,17 @@ import java.util.regex.Pattern;
  * @author rjf
  * @since 2019-08-27
  */
+@Data
+@Accessors(chain = true)
 public class CodeInfo {
+    /**
+     * 项目文件前缀
+     */
+    private String projectPrefix = "";
+    /**
+     * 模块文件前缀
+     */
+    private String modulePrefix = "";
     /**
      * 是否为JPA
      */
@@ -191,24 +203,6 @@ public class CodeInfo {
         return this;
     }
 
-    public boolean isJpa() {
-        return jpa;
-    }
-
-    public CodeInfo setJpa(boolean jpa) {
-        this.jpa = jpa;
-        return this;
-    }
-
-    public String getDir() {
-        return dir;
-    }
-
-    public CodeInfo setDir(String dir) {
-        this.dir = dir;
-        return this;
-    }
-
     /**
      * 设置模块
      *
@@ -222,222 +216,4 @@ public class CodeInfo {
         return this;
     }
 
-    public String getDatabaseUrl() {
-        return databaseUrl;
-    }
-
-    /**
-     * 数据库地址
-     *
-     * @param databaseUrl 地址
-     */
-    public CodeInfo setDatabaseUrl(String databaseUrl) {
-        this.databaseUrl = databaseUrl;
-        return this;
-    }
-
-    public String getDatabaseUsername() {
-        return databaseUsername;
-    }
-
-    /**
-     * 数据库用户名
-     *
-     * @param databaseUsername 用户名
-     */
-    public CodeInfo setDatabaseUsername(String databaseUsername) {
-        this.databaseUsername = databaseUsername;
-        return this;
-    }
-
-    public String getDatabasePassword() {
-        return databasePassword;
-    }
-
-    /**
-     * 数据库密码
-     *
-     * @param databasePassword 密码
-     */
-    public CodeInfo setDatabasePassword(String databasePassword) {
-        this.databasePassword = databasePassword;
-        return this;
-    }
-
-    public String getModuleName() {
-        return moduleName;
-    }
-
-    public void setModuleName(String moduleName) {
-        this.moduleName = moduleName;
-    }
-
-    public String getModuleTitle() {
-        return moduleTitle;
-    }
-
-    public void setModuleTitle(String moduleTitle) {
-        this.moduleTitle = moduleTitle;
-    }
-
-    public String[] getTables() {
-        return tables;
-    }
-
-    public void setTables(String[] tables) {
-        this.tables = tables;
-    }
-
-    public Map<String, Map<String, String>> getTableColumnTypes() {
-        return tableColumnTypes;
-    }
-
-    public void setTableColumnTypes(Map<String, Map<String, String>> tableColumnTypes) {
-        this.tableColumnTypes = tableColumnTypes;
-    }
-
-    public String getBasePackage() {
-        return basePackage;
-    }
-
-    public CodeInfo setBasePackage(String basePackage) {
-        this.basePackage = basePackage;
-        return this;
-    }
-
-    public String getLogicDeleteFieldName() {
-        return logicDeleteFieldName;
-    }
-
-    public void setLogicDeleteFieldName(String logicDeleteFieldName) {
-        this.logicDeleteFieldName = logicDeleteFieldName;
-    }
-
-    public String getVersionFieldName() {
-        return versionFieldName;
-    }
-
-    public void setVersionFieldName(String versionFieldName) {
-        this.versionFieldName = versionFieldName;
-    }
-
-    public String getBaseEntity() {
-        return baseEntity;
-    }
-
-    public CodeInfo setBaseEntity(String baseEntity) {
-        this.baseEntity = baseEntity;
-        return this;
-    }
-
-    public String[] getBaseEntityColumns() {
-        return baseEntityColumns;
-    }
-
-    public void setBaseEntityColumns(String[] baseEntityColumns) {
-        this.baseEntityColumns = baseEntityColumns;
-    }
-
-    public Map<String, String> getCustomBaseEntity() {
-        return customBaseEntity;
-    }
-
-    public void setCustomBaseEntity(Map<String, String> customBaseEntity) {
-        this.customBaseEntity = customBaseEntity;
-    }
-
-    public Map<String, Set<String>> getCustomBaseEntityColumns() {
-        return customBaseEntityColumns;
-    }
-
-    public void setCustomBaseEntityColumns(Map<String, Set<String>> customBaseEntityColumns) {
-        this.customBaseEntityColumns = customBaseEntityColumns;
-    }
-
-    public String getBaseMapper() {
-        return baseMapper;
-    }
-
-    public CodeInfo setBaseMapper(String baseMapper) {
-        this.baseMapper = baseMapper;
-        return this;
-    }
-
-    public String getBaseService() {
-        return baseService;
-    }
-
-    public CodeInfo setBaseService(String baseService) {
-        this.baseService = baseService;
-        return this;
-    }
-
-    public String getBaseServiceImpl() {
-        return baseServiceImpl;
-    }
-
-    public CodeInfo setBaseServiceImpl(String baseServiceImpl) {
-        this.baseServiceImpl = baseServiceImpl;
-        return this;
-    }
-
-    public String getBaseController() {
-        return baseController;
-    }
-
-    public CodeInfo setBaseController(String baseController) {
-        this.baseController = baseController;
-        return this;
-    }
-
-    public String getBaseVoClass() {
-        return baseVoClass;
-    }
-
-    public CodeInfo setBaseVoClass(String baseVoClass) {
-        this.baseVoClass = baseVoClass;
-        return this;
-    }
-
-    public Map<String, String> getCustomBaseVoClass() {
-        return customBaseVoClass;
-    }
-
-    public void setCustomBaseVoClass(Map<String, String> customBaseVoClass) {
-        this.customBaseVoClass = customBaseVoClass;
-    }
-
-    public boolean isFileOverride() {
-        return fileOverride;
-    }
-
-    public CodeInfo setFileOverride(boolean fileOverride) {
-        this.fileOverride = fileOverride;
-        return this;
-    }
-
-    public Pattern getFileOverridePattern() {
-        return fileOverridePattern;
-    }
-
-    public CodeInfo setFileOverridePattern(Pattern fileOverridePattern) {
-        this.fileOverridePattern = fileOverridePattern;
-        return this;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public DateType getDateType() {
-        return dateType;
-    }
-
-    public void setDateType(DateType dateType) {
-        this.dateType = dateType;
-    }
 }
